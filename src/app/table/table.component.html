@@ -1,0 +1,59 @@
+<!-- https://dummyjson.com/users -->
+<!-- 
+
+- Create service that contain API call method
+ - Create a component that displays items in the table
+ - Display alternative rows with different background colors using style binding
+ - Implement sorting functionality with drop-down for all columns 
+ - Implement search functionality to search any keyword exist in table
+-->
+
+<div class="row">
+  <div class="col-xs-12">
+    <div class="flex">
+      <h1>Data</h1>
+      <input
+        type="search"
+        placeholder="Enter to search"
+        [(ngModel)]="search"
+        (input)="filterData()"
+        class="design"
+      />
+    </div>
+    <table class="table">
+      <tr>
+        <th scope="col" (click)="sortData('id')">
+          ID &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+        <th scope="col" (click)="sortData('firstName')">
+          First Name &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+
+        <th scope="col" (click)="sortData('lastName')">
+          Last Name &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+
+        <th scope="col" (click)="sortData('email')">
+          Email address &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+
+        <th scope="col" (click)="sortData('age')">
+          Age &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+        <th scope="col" (click)="sortData('weight')">
+          Weight &nbsp;{{ sortDirection ? "▲" : "▼" }}
+        </th>
+      </tr>
+      <tr *ngFor="let data of table_data">
+        <td>{{ data["id"] }}</td>
+        <td>{{ data["firstName"] }}</td>
+
+        <td>{{ data["lastName"] }}</td>
+
+        <td>{{ data["email"] }}</td>
+        <td>{{ data["age"] }}</td>
+        <td>{{ data["weight"] }}</td>
+      </tr>
+    </table>
+  </div>
+</div>

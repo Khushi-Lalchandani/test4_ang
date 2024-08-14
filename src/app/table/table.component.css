@@ -1,0 +1,51 @@
+tr:nth-child(even) {
+  background-color: rgb(202, 56, 148);
+
+  color: #fff;
+}
+tr:nth-child(odd) {
+  background-color: rgb(220, 220, 220);
+}
+td,
+th {
+  padding: 10px;
+  border: 1px dashed #000;
+  text-align: center;
+  font-size: 15px;
+  transition: all 0.3s;
+}
+tr {
+  transition: all 0.1s;
+}
+tr:nth-child(even):hover {
+  background-color: rgb(150, 4, 96);
+  cursor: pointer;
+}
+tr:nth-child(odd):hover {
+  background-color: rgb(189, 189, 189);
+  color: #000;
+  cursor: pointer;
+}
+th:hover {
+  cursor: pointer;
+  background-color: rgb(130, 130, 130);
+  color: #fff;
+}
+.flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.design {
+  padding: 10px 20px;
+  /* margin: 20px 0; */
+  border-radius: 20px;
+  border: 1px solid #777;
+  color: #222;
+  letter-spacing: 0.7px;
+  cursor: pointer;
+}
+.design:focus {
+  outline: 1px solid #999;
+}
