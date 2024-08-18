@@ -44,7 +44,10 @@
           Weight &nbsp;{{ sortDirection ? "▲" : "▼" }}
         </th>
       </tr>
-      <tr *ngFor="let data of table_data">
+      <tr
+        *ngFor="let data of table_data; let i = index"
+        [ngStyle]="backgroundColor(i)"
+      >
         <td>{{ data["id"] }}</td>
         <td>{{ data["firstName"] }}</td>
 
