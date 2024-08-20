@@ -10,7 +10,7 @@ export class TableComponent implements OnInit {
   constructor(private apiService: APIService) {}
   sortedColumn?: string;
   table_data?: any[];
-  sortDirection = false;
+  sortDirection = 'asc';
   search?: string;
   cloneArray?: any[];
 
@@ -34,18 +34,15 @@ export class TableComponent implements OnInit {
     );
   }
 
-  sortData(col: string) {
-    this.sortedColumn = col;
-    this.sortDirection = !this.sortDirection;
-
+  sortData(col: string, value: string) {
+    this.sortDirection = value;
     this.table_data?.sort((a, b) => {
-      if (a[col] > b[col]) {
-        return this.sortDirection ? -1 : 1;
-      }
       if (a[col] < b[col]) {
-        return this.sortDirection ? 1 : -1;
+        return this.sortDirection === 'asc' ? -1 : 1;
       }
-
+      if (a[col] > b[col]) {
+        return this.sortDirection === 'asc' ? 1 : -1;
+      }
       return 0;
     });
   }

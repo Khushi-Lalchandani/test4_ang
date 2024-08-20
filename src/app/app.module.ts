@@ -5,9 +5,10 @@ import { AppComponent } from './app.component';
 import { TableComponent } from './table/table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { APIService } from './api.service';
+import { AppDropDown } from './table/dropdown.directive';
 
 @NgModule({
-  declarations: [AppComponent, TableComponent],
+  declarations: [AppComponent, TableComponent, AppDropDown],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [APIService],
   bootstrap: [AppComponent],
