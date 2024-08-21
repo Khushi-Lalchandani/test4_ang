@@ -34,18 +34,6 @@ export class TableComponent implements OnInit {
     );
   }
 
-  // sortData(col: string, value: string) {
-  //   this.sortDirection = value;
-  //   this.table_data?.sort((a, b) => {
-  //     if (a[col] < b[col]) {
-  //       return this.sortDirection === 'asc' ? -1 : 1;
-  //     }
-  //     if (a[col] > b[col]) {
-  //       return this.sortDirection === 'asc' ? 1 : -1;
-  //     }
-  //     return 0;
-  //   });
-  // }
   sortData(col: string) {
     this.sortDirection = !this.sortDirection;
     this.table_data?.sort((a, b) => {
