@@ -12,130 +12,63 @@
   <div class="col-xs-12">
     <div class="flex">
       <h1>Data</h1>
-      <input
-        type="search"
-        placeholder="Enter to search"
-        [(ngModel)]="search"
-        (input)="filterData()"
-        class="design"
-      />
+      <div class="flex" style="gap: 12px; margin-right: 20px">
+        <input
+          type="search"
+          placeholder="Enter to search"
+          [(ngModel)]="search"
+          (input)="filterData()"
+          class="design"
+        />
+        <li class="dropdown" appDropDown>
+          <a
+            style="cursor: pointer; color: #000; font-size: 15px"
+            class="dropdown-toggle"
+            ><span class="glyphicon glyphicon-sort"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a style="cursor: pointer" (click)="sortData('id')">ID</a>
+            </li>
+            <li>
+              <a style="cursor: pointer" (click)="sortData('firstName')"
+                >First name
+              </a>
+            </li>
+            <li>
+              <a style="cursor: pointer" (click)="sortData('lastName')"
+                >Last name</a
+              >
+            </li>
+
+            <li>
+              <a style="cursor: pointer" (click)="sortData('email')">Email</a>
+            </li>
+            <li>
+              <a style="cursor: pointer" (click)="sortData('age')">Age</a>
+            </li>
+            <li>
+              <a style="cursor: pointer" (click)="sortData('weight')">
+                Weight</a
+              >
+            </li>
+          </ul>
+        </li>
+      </div>
     </div>
     <table class="table">
       <tr>
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            ID &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-            <ul class="dropdown-menu">
-              <li>
-                <a style="cursor: pointer" (click)="sortData('id', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a style="cursor: pointer" (click)="sortData('id', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">ID</th>
 
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            First Name &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-            <ul class="dropdown-menu">
-              <li>
-                <a
-                  style="cursor: pointer"
-                  (click)="sortData('firstName', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a
-                  style="cursor: pointer"
-                  (click)="sortData('firstName', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">First Name</th>
 
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            Last Name &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-            <ul class="dropdown-menu">
-              <li>
-                <a style="cursor: pointer" (click)="sortData('lastName', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a
-                  style="cursor: pointer"
-                  (click)="sortData('lastName', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">Last Name</th>
 
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            Email address &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-            <ul class="dropdown-menu">
-              <li>
-                <a style="cursor: pointer" (click)="sortData('email', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a style="cursor: pointer" (click)="sortData('email', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">Email address</th>
 
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            Age &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-            <ul class="dropdown-menu">
-              <li>
-                <a style="cursor: pointer" (click)="sortData('age', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a style="cursor: pointer" (click)="sortData('age', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">Age</th>
 
-        <th scope="col">
-          <li class="dropdown" appDropDown>
-            Weight &nbsp;{{ sortDirection === "asc" ? "▼" : " ▲" }}
-
-            <ul class="dropdown-menu">
-              <li>
-                <a style="cursor: pointer" (click)="sortData('weight', 'asc')"
-                  >Ascending</a
-                >
-              </li>
-              <li>
-                <a style="cursor: pointer" (click)="sortData('weight', 'desc')"
-                  >Descending
-                </a>
-              </li>
-            </ul>
-          </li>
-        </th>
+        <th scope="col">Weight</th>
       </tr>
       <tr
         *ngFor="let data of table_data; let i = index"
